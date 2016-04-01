@@ -1,14 +1,12 @@
 <html>
   <head>
-    <title>Pylot</title>
+    <title>Video Library</title>
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
-    <link rel="stylesheet" href="/static/css/style.css">
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script src="/static/scripts/app.js"></script>
     <script src="https://apis.google.com/js/client.js?onload=init"></script>
   </head>
   <body>
-
 
   <div class="container">
 
@@ -20,8 +18,16 @@
 
     <div class="content">            
       <div class="title">Your video library</div>
-      <div class="player"></div>
-      <div class="videos"></div>
+      <div class="player">
+        <iframe class="video" width="640" height="360" src="//www.youtube.com/embed/{{ videos[0]['video_id']}}" frameborder="0"></iframe>
+      </div>
+      <div class="videos">
+      {% for video in videos %}
+        <div class="video">
+        <img src="https://i.ytimg.com/vi/{{ video['video_id']}}/default.jpg" alt="{{ video['title']}}">
+        </div>
+      {% endfor %}
+      </div>
     </div>
   
   </div>

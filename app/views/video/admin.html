@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Pylot</title>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="/static/scripts/app.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+  </head>
+  <body>
+
+  <div class="container">
+
+    <div id="nav">
+      <ul>
+        <li><a href="/logout">logout</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p><input type="text" id="search" placeholder="Type something..." autocomplete="off" /></p>
+      <p><input id="search-button" disabled="true" onclick="search()" type="submit" value="Search"></p>
+    </div>
+
+    <div id="results"></div>
+
+
+    <div class="content">            
+      <div class="title">Your video library</div>
+      <div id="player"></div>
+      <div class="videos">
+      {% for video in videos %}
+        <div class="video">
+        <img src="https://i.ytimg.com/vi/{{ video['video_id']}}/default.jpg" alt="{{ video['title']}}">
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  
+  </div>
+  </body>
+</html>
